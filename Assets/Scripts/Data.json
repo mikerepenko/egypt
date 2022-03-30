@@ -1,0 +1,14 @@
+{
+    "buildings":
+    [
+        {
+            "name": "Hut",
+            "minLevel": 2
+
+        },
+        {
+            "name": "Field",
+            "minLevel": 3
+        }
+    ]
+}
