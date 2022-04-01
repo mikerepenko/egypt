@@ -53,6 +53,7 @@ using Random = UnityEngine.Random;
          /// </summary>
          public void CreateField()
          {
+            Debug.Log(12);
              var chessColor = false;
              //squaresArray = new Square[maxCols * maxRows];
 
@@ -67,6 +68,8 @@ using Random = UnityEngine.Random;
                  }
              }
 
+            Debug.Log(13);
+
              for (var row = 0; row < fieldData.maxRows; row++)
              {
                  for (var col = 0; col < fieldData.maxCols; col++)
@@ -76,7 +79,9 @@ using Random = UnityEngine.Random;
                          GetSquare(col,row).SetType(squareBlock);
                  }
              }
-             
+
+            Debug.Log(14);
+
              foreach (var i in squaresArray.ToList())
              { 
                  i.SetBorderDirection();

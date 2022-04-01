@@ -235,13 +235,22 @@ namespace SweetSugar.Scripts.Core
                 switch (value)
                 {
                     case GameState.PrepareGame://preparing and initializing  the game
+
+                        Debug.Log(4);
+
                         StartCoroutine(AI.THIS.CheckPossibleCombines());
                         CrosssceneData.passLevelCounter++;
                         PrepareGame();
+
+                        Debug.Log(5);
+
                         // var firstItemPrefab = THIS.levelData.target.prefabs.FirstOrDefault();
                         // if (firstItemPrefab && firstItemPrefab.GetComponent<Item>() && !firstItemPrefab.GetComponent<ItemSimple>())
                         //     collectIngredients = true;
                         GenerateLevel();
+
+                        Debug.Log(6);
+
                         levelLoaded = true;
                         OnLevelLoaded?.Invoke();
                         break;
@@ -500,26 +509,41 @@ namespace SweetSugar.Scripts.Core
         //Generate loaded level
         private void GenerateLevel()
         {
+            Debug.Log(7);
+
             var fieldPos = new Vector3(-0.9f, 0, -10);
             var latestFieldPos = Vector3.right * ((GetLastSubLevel() - 1) * 10) + Vector3.back * 10;
 
             var i = 0;
+
+            //Debug.Log(fieldBoards.Count);
+
             foreach (var item in fieldBoards)
             {
+                Debug.Log(9);
                 var _field = item.gameObject;
                 _field.transform.SetParent(FieldsParent.transform);
                 _field.transform.position = fieldPos + Vector3.right * (i * 15);
                 var fboard = _field.GetComponent<FieldBoard>();
 
+                Debug.Log(10);
+
                 fboard.CreateField();
                 latestFieldPos = fboard.GetPosition();
 
+                Debug.Log(11);
+
                 i++;
             }
+
+            Debug.Log(8);
+
             levelData.TargetCounters.RemoveAll(x => x.targetLevel.setCount == SetCount.FromLevel && x.GetCount()==0);
 
             transform.position = latestFieldPos + Vector3.right * 10 + Vector3.back * 10 - (Vector3)orientationGameCameraHandle.offsetFieldPosition;
             SetPreBoosts();
+
+            Debug.Log(9);
         }
 
         private bool animStarted;
