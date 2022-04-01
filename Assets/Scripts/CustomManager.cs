@@ -1,4 +1,5 @@
 using SweetSugar.Scripts.GUI;
+using SweetSugar.Scripts.MapScripts;
 using SweetSugar.Scripts.System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,21 +7,23 @@ using UnityEngine;
 
 public class CustomManager : MonoBehaviour
 {
-    [SerializeField] GUIUtils gUIUtils;
+    [SerializeField] MapLevel map;
+
+    private void Awake()
+    {
+        //Debug.Log(1);
+        //map.Fun();
+        //Debug.Log(2);
+    }
+
+    IEnumerator Fun()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log(1);
+    }
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
-
-        GUIUtils.THIS = gUIUtils;
-
-        if (GUIUtils.THIS == null)
-        {
-            Debug.Log(1);
-        }
-
-        gUIUtils.DebugSettings = Resources.Load<DebugSettings>("Scriptable/DebugSettings");
-        gUIUtils.DebugSettings.AI = true;
-        gUIUtils.StartGame();
+        StartCoroutine(Fun());
     }
 }
