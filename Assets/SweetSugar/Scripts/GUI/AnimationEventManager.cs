@@ -471,7 +471,6 @@ namespace SweetSugar.Scripts.GUI
 
         public void BuyLifeShop()
         {
-
             SoundBase.Instance.PlayOneShot(SoundBase.Instance.click);
             if (InitScript.lifes < InitScript.Instance.CapOfLife)
                 MenuReference.THIS.LiveShop.gameObject.SetActive(true);

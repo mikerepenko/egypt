@@ -70,6 +70,7 @@ namespace SweetSugar.Scripts.MapScripts
 
         public void OnMouseUpAsButton()
         {
+            Debug.Log(123);
             if (LevelsMap.GetIsClickEnabled())
             {
                 ResetScale();

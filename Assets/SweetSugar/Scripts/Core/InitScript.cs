@@ -89,7 +89,11 @@ namespace SweetSugar.Scripts.Core
                 DateOfExit = ServerTime.THIS.serverTime.ToString();
             DebugLogKeeper.Init();
             Gems = PlayerPrefs.GetInt("Gems");
+            //todo
+            PlayerPrefs.SetInt("Lifes", 4);
+
             lifes = PlayerPrefs.GetInt("Lifes");
+            
             if (PlayerPrefs.GetInt("Lauched") == 0)
             {
                 //First lauching
