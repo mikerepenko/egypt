@@ -7,8 +7,5 @@ public class TasksObject : MonoBehaviour
     public List<bool> tasks;
     public List<string> nameTasks;
 
-    private void Start()
-    {
-        
-    }
+    public string nameObject;
 }

@@ -7,23 +7,27 @@ using UnityEngine;
 
 public class CustomManager : MonoBehaviour
 {
-    [SerializeField] MapLevel map;
+    [SerializeField] private GameObject menuPlay;
+    [SerializeField] private GameObject[] levels;
+    [SerializeField] GameObject panelLoad;
 
-    private void Awake()
+    private int currentLevel = 0;
+
+    private void Start()
     {
-        //Debug.Log(1);
-        //map.Fun();
-        //Debug.Log(2);
+        panelLoad.SetActive(true);
+        currentLevel = PlayerPrefs.GetInt("currentLevel") - 1;
+
+        levels[0].GetComponent<MapLevel>().OnMouseUpAsButton();
+
+        StartCoroutine(Fun());
     }
 
     IEnumerator Fun()
     {
-        yield return new WaitForSeconds(1f);
-        Debug.Log(1);
-    }
-
-    private void Start()
-    {
-        StartCoroutine(Fun());
+        yield return new WaitForSeconds(2f);
+        menuPlay.GetComponent<AnimationEventManager>().Play();
+        yield return new WaitForSeconds(1.5f);
+        panelLoad.SetActive(false);
     }
 }

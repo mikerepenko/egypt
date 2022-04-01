@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShiftBlock : MonoBehaviour
 {
-    [SerializeField] GameObject currentBlock;
-    [SerializeField] GameObject shiftBlock;
+    public GameObject currentBlock;
+    public GameObject shiftBlock;
 
     public void Shift()
     {

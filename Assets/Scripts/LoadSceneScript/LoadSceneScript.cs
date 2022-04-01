@@ -20,47 +20,46 @@ public class LoadSceneScript : MonoBehaviour
     {
         loadingSceneOperation = SceneManager.LoadSceneAsync(NomerShiftScene.nomerScene);
         loadingSceneOperation.allowSceneActivation = false;
-        load = true;
-        speedLoad = 0.00045f;
+
+        if(NomerShiftScene.nomerScene == 2 || NomerShiftScene.nomerPlayLvL != 1)
+        {
+            load = false;
+        }
+        else
+        {
+            load = true;
+        }
+        
+        speedLoad = 0.0045f;
     }
 
     private void Update()
     {
         if (progressBar.fillAmount != 1f)
         {
-            /*if (!loadingSceneOperation.isDone && loadingSceneOperation.progress < 0.9f)
-            {
-                Debug.Log(loadingSceneOperation.progress);
-                progressBar.fillAmount = loadingSceneOperation.progress;
-            }
-            else
-            {
-                progressBar.fillAmount = 1f;
-
-                BlockText.SetActive(false);
-
-                PlayButton.SetActive(true);
-                SettingsButton.SetActive(true);
-
-                load = false;
-            }*/
-
             progressBar.fillAmount += speedLoad;
         }
         else
         {
-            BlockText.SetActive(false);
-            loadBar.SetActive(false);
+            if (!load)
+            {
+                loadingSceneOperation.allowSceneActivation = true;
+            }
+            else
+            {
+                BlockText.SetActive(false);
+                loadBar.SetActive(false);
 
-            PlayButton.SetActive(true);
-            SettingsButton.SetActive(true);
+                PlayButton.SetActive(true);
+                SettingsButton.SetActive(true);
+            }
         }
     }
 
     public void LoadScene()
     {
         //SceneManager.LoadScene(NomerShiftScene.nomerScene);
-        if(load && NomerShiftScene.nomerScene == 1)
+        if(load && NomerShiftScene.nomerScene == 1 && NomerShiftScene.nomerPlayLvL != 2)
         {
             PlayButton.SetActive(false);
             SettingsButton.SetActive(false);

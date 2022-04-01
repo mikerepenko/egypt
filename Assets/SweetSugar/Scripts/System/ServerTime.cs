@@ -29,7 +29,8 @@ namespace SweetSugar.Scripts.System
         {
                 StartCoroutine(getTime());
         }
-  
+
+        [Obsolete]
         IEnumerator getTime()
         {
 #if UNITY_WEBGL

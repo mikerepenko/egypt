@@ -710,8 +710,13 @@ namespace SweetSugar.Scripts.Core
             if(PlayerPrefs.GetInt("ReachedLevel") <= currentLevel)
                 PlayerPrefs.SetInt("ReachedLevel",currentLevel+1);
             PlayerPrefs.Save();
-            if(Application.isEditor)
+            if (Application.isEditor)
+            {
+                PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel") + 1);
+                PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + 1);
+                // 
                 Debug.Log("Level " + currentLevel + " score " + Score + " stars " + stars);
+            }
             CrosssceneData.win = true;
 #if PLAYFAB || GAMESPARKS
             NetworkManager.dataManager.SetPlayerScore(currentLevel, Score);

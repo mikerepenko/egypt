@@ -10,6 +10,7 @@ public class ButtonMethodShiftScene : MonoBehaviour
     public void ButtonMethod()
     {
         NomerShiftScene.nomerScene = nomer;
+        NomerShiftScene.nomerPlayLvL = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(0);
     }
 }
