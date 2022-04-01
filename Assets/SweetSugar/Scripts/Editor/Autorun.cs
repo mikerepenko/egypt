@@ -8,13 +8,13 @@ namespace SweetSugar.Scripts.Editor
     [InitializeOnLoad]
     public class Autorun
     {
-        static Autorun()
+        /*static Autorun()
         {
             EditorApplication.update += InitProject;
 
-        }
+        }*/
 
-        static void InitProject()
+        /*static void InitProject()
         {
             EditorApplication.update -= InitProject;
             if (EditorApplication.timeSinceStartup < 10 || !EditorPrefs.GetBool(Application.dataPath+"AlreadyOpened"))
@@ -28,6 +28,6 @@ namespace SweetSugar.Scripts.Editor
 
             }
 
-        }
+        }*/
     }
 }

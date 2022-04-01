@@ -21,13 +21,15 @@ namespace SweetSugar.Scripts.GUI
 
         public void StartGame()
         {
-            if (InitScript.lifes > 0 || DebugSettings.AI)
+            if (/*InitScript.lifes > 0 ||*/ DebugSettings.AI)
             {
-                InitScript.Instance.SpendLife(1);
+                Debug.Log(2);
+                //InitScript.Instance.SpendLife(1);
                 LevelManager.THIS.gameStatus = GameState.PrepareGame;
             }
             else
             {
+                Debug.Log(3);
                 BuyLifeShop();
             }
 

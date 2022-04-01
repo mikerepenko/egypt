@@ -399,6 +399,7 @@ namespace SweetSugar.Scripts.GUI
             }
             else if (gameObject.name == "MenuPlay")
             {
+                Debug.Log(1);
                 GUIUtils.THIS.StartGame();
                 CloseMenu();
             }
