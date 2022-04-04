@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AllLvL : MonoBehaviour
 {
-    int currentNomerLvL;
+    [SerializeField] Text textLvL;
+    [SerializeField] Image progressLvL;
+    public int currentNomerLvL;
 
     private void Start()
     {
@@ -18,11 +21,19 @@ public class AllLvL : MonoBehaviour
             PlayerPrefs.SetInt("currentLevel", currentNomerLvL);
         }
 
-        //PlayerPrefs.DeleteAll();
+        textLvL.text += currentNomerLvL;
+
+        if (PlayerPrefs.HasKey("progressLvL"))
+        {
+            progressLvL.fillAmount = PlayerPrefs.GetFloat("progressLvL");
+        }
+
+        PlayerPrefs.DeleteAll();
     }
 
-    public int CurrentLvLReturn()
+    public void ShiftLvL()
     {
-        return currentNomerLvL;
+        textLvL.text = "Уровень " + currentNomerLvL;
+        progressLvL.fillAmount = 0f;
     }
 }

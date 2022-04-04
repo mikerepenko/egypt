@@ -15,35 +15,19 @@ MonoBehaviour:
   targets:
     array:
     - targetType:
-        type: 1
+        type: 0
       sprites:
         array:
-        - icon: {fileID: 21300000, guid: ff22b17d043794cce91292f209a8076b, type: 3}
+        - icon: {fileID: 21300000, guid: 8604122af3f62472e95c261ef7b15478, type: 3}
+          uiSprite: 0
+        - icon: {fileID: 21300000, guid: 37f6b4815822f472dbb6e1121d3ef560, type: 3}
+          uiSprite: 0
+        - icon: {fileID: 21300000, guid: 76484204c1ee945419d016f44240797b, type: 3}
+          uiSprite: 0
+        - icon: {fileID: 21300000, guid: 25a7df250b1834167834d8eac6107271, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 1
-      NotFinishUntilMoveOut: 0
-      ShowTheScoreForStar:
-        ShowTheScore: 0
-    - targetType:
-        type: 1
-      sprites:
-        array:
-        - icon: {fileID: 21300000, guid: b579f2532165c4d38afda6332b8af6cb, type: 3}
-          uiSprite: 0
-      CountDrawer:
-        count: 1
-      NotFinishUntilMoveOut: 0
-      ShowTheScoreForStar:
-        ShowTheScore: 0
-    - targetType:
-        type: 5
-      sprites:
-        array:
-        - icon: {fileID: 21300000, guid: d2ca30adfcc684ce8b15d3e4be9adc46, type: 3}
-          uiSprite: 0
-      CountDrawer:
-        count: 1
+        count: 25
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0

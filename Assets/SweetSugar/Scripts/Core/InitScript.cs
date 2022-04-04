@@ -140,7 +140,6 @@ namespace SweetSugar.Scripts.Core
         {
             Debug.Log(string.Format("Stars count {0} of level {1} saved.", starsCount, level));
             PlayerPrefs.SetInt(GetLevelKey(level), starsCount);
-
         }
 
         private string GetLevelKey(int number)
@@ -148,16 +147,10 @@ namespace SweetSugar.Scripts.Core
             return string.Format("Level.{0:000}.StarsCount", number);
         }
 
-
-
-
-
         public void ShowRate()
         {
             rate.SetActive(true);
         }
-
-
         public void ShowReward()
         {
             var reward = MenuReference.THIS.Reward.GetComponent<RewardIcon>();

@@ -9,6 +9,6 @@ public class TextCurrentLvL : MonoBehaviour
 
     private void OnEnable()
     {
-        gameObject.GetComponent<Text>().text = "Уровень " + lvl.CurrentLvLReturn().ToString();
+        gameObject.GetComponent<Text>().text = "Уровень " + lvl.currentNomerLvL.ToString();
     }
 }

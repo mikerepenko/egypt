@@ -15,24 +15,13 @@ MonoBehaviour:
   targets:
     array:
     - targetType:
-        type: 6
+        type: 0
       sprites:
         array:
-        - icon: {fileID: 21300000, guid: 2586ef599ebcd4a7f883f12bc8880884, type: 3}
+        - icon: {fileID: 21300000, guid: 1232f9fd124c9448c99813f3ade688bf, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 0
-      NotFinishUntilMoveOut: 0
-      ShowTheScoreForStar:
-        ShowTheScore: 0
-    - targetType:
-        type: 5
-      sprites:
-        array:
-        - icon: {fileID: 21300000, guid: d2ca30adfcc684ce8b15d3e4be9adc46, type: 3}
-          uiSprite: 0
-      CountDrawer:
-        count: 1
+        count: 39
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0

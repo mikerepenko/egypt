@@ -11,14 +11,17 @@ public class CustomManager : MonoBehaviour
     [SerializeField] private GameObject[] levels;
     [SerializeField] GameObject panelLoad;
 
-    private int currentLevel = 0;
+    [SerializeField] int lvl;
+
+    //private int currentLevel = 0;
 
     private void Start()
     {
         panelLoad.SetActive(true);
-        currentLevel = PlayerPrefs.GetInt("currentLevel") - 1;
+        //currentLevel = PlayerPrefs.GetInt("currentLevel") - 1;
 
-        levels[0].GetComponent<MapLevel>().OnMouseUpAsButton();
+        Debug.Log(1);
+        levels[lvl].GetComponent<MapLevel>().OnMouseUpAsButton();
 
         StartCoroutine(Fun());
     }
