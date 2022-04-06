@@ -15,6 +15,7 @@ public class LoadTask : MonoBehaviour
     [SerializeField] GameObject PrefabButtonTask;
     [SerializeField] LoadSaveData dataObject;
     [SerializeField] ShiftBlock shiftBlock;
+    [SerializeField] ParticSystemObject particSystem;
 
     [SerializeField] AllLvL lvL;
     [SerializeField] int needLvL;
@@ -78,8 +79,10 @@ public class LoadTask : MonoBehaviour
             work.tasksObject = currentTask;
             work.objectTask = gameObject.GetComponent<SpriteRenderer>();
             work.shiftBlock.currentBlock = TaskBoard;
+            work.particSystem = particSystem;
             work.shiftBlock.shiftBlock = BoardStartGame;
             work.loadTask = this;
+            work.taskBoard = TaskBoard;
 
             if (currentTask.tasks[i] == Progress.completed)
             {

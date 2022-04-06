@@ -17,6 +17,10 @@ public class WorkTask : MonoBehaviour
     public int nomerTask;
     [HideInInspector]
     public LoadTask loadTask;
+    [HideInInspector]
+    public ParticSystemObject particSystem;
+    [HideInInspector]
+    public GameObject taskBoard;
 
     public ClassTask tasksObject;
     public SpriteRenderer objectTask;
@@ -30,6 +34,10 @@ public class WorkTask : MonoBehaviour
             {
                 tasksObject.tasks[nomerTask] = Progress.completed;
                 objectTask.sprite = tasksObject.sprites[nomerTask];
+
+                particSystem.StartCoroutine(particSystem.TimePart());
+
+                Debug.Log(2);
 
                 stars.countResurs--;
                 stars.textCountResurs.text = "Звезды: " + stars.countResurs.ToString();
@@ -64,6 +72,7 @@ public class WorkTask : MonoBehaviour
                 tasksObject.Save();
 
                 loadTask.LoadTaskBoard(tasksObject);
+                taskBoard.SetActive(false);
             }
             else
             {
