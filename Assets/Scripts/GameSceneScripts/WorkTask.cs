@@ -40,7 +40,7 @@ public class WorkTask : MonoBehaviour
                 Debug.Log(2);
 
                 stars.countResurs--;
-                stars.textCountResurs.text = "Звезды: " + stars.countResurs.ToString();
+                stars.textCountResurs.text = stars.countResurs.ToString();
 
                 if(nomerTask + 1 < tasksObject.tasks.Count)
                 {

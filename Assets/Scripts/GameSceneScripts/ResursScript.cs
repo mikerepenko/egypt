@@ -23,6 +23,6 @@ public class ResursScript : MonoBehaviour
             PlayerPrefs.SetInt(nameResurs, countResurs);
         }
 
-        textCountResurs.text += " " + countResurs.ToString();
+        textCountResurs.text = countResurs.ToString();
     }
 }

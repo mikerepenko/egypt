@@ -13,7 +13,7 @@ public class LoadTask : MonoBehaviour
     [SerializeField] ResursScript stars;
     [SerializeField] Image progress;
     [SerializeField] GameObject PrefabButtonTask;
-    [SerializeField] LoadSaveData dataObject;
+    public LoadSaveData dataObject;
     [SerializeField] ShiftBlock shiftBlock;
     [SerializeField] ParticSystemObject particSystem;
 
@@ -41,6 +41,13 @@ public class LoadTask : MonoBehaviour
                 {
                     CloseObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = "Заблокировано, откроется на уровне " + needLvL;
                     CloseObject.transform.GetChild(2).gameObject.GetComponent<Image>().sprite = currentTask.sprites[currentTask.sprites.Count - 1];
+
+                    for(int i = 0; i<2; i++)
+                    {
+                        shiftBlock.currentBlock[i].SetActive(false);
+                    }
+                    stars.gameObject.SetActive(false);
+
                     CloseObject.SetActive(true);
                 }
                 else
@@ -78,9 +85,9 @@ public class LoadTask : MonoBehaviour
             work.lvl = lvL;
             work.tasksObject = currentTask;
             work.objectTask = gameObject.GetComponent<SpriteRenderer>();
-            work.shiftBlock.currentBlock = TaskBoard;
+            work.shiftBlock.currentBlock.Add(TaskBoard);
             work.particSystem = particSystem;
-            work.shiftBlock.shiftBlock = BoardStartGame;
+            work.shiftBlock.shiftBlock.Add(BoardStartGame);
             work.loadTask = this;
             work.taskBoard = TaskBoard;
 
