@@ -33,6 +33,7 @@ public class AllLvL : MonoBehaviour
 
     public void ShiftLvL()
     {
+        currentNomerLvL++;
         textLvL.text = currentNomerLvL.ToString();
         progressLvL.fillAmount = 0f;
     }

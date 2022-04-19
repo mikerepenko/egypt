@@ -25,4 +25,10 @@ public class ResursScript : MonoBehaviour
 
         textCountResurs.text = countResurs.ToString();
     }
+
+    public void ShiftCountResurs(int newResurs)
+    {
+        countResurs = newResurs;
+        textCountResurs.text = countResurs.ToString();
+    }
 }

@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class LoadTask : MonoBehaviour
 {
     [SerializeField] GameObject TaskBoard;
-    [SerializeField] GameObject BoardStartGame;
     [SerializeField] GameObject CloseObject;
     [SerializeField] ResursScript stars;
     [SerializeField] Image progress;
@@ -19,7 +18,8 @@ public class LoadTask : MonoBehaviour
 
     [SerializeField] AllLvL lvL;
     [SerializeField] int needLvL;
-    [SerializeField] Image progressLvL;
+    [SerializeField] RewardForTask reward;
+    [SerializeField] NeedResursScript needResurs;
 
     Vector3 touchPos;
 
@@ -38,7 +38,7 @@ public class LoadTask : MonoBehaviour
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 if (needLvL > lvL.currentNomerLvL)
-                {
+                {   
                     CloseObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = "Заблокировано, откроется на уровне " + needLvL;
                     CloseObject.transform.GetChild(2).gameObject.GetComponent<Image>().sprite = currentTask.sprites[currentTask.sprites.Count - 1];
 
@@ -77,24 +77,26 @@ public class LoadTask : MonoBehaviour
             GameObject newButtonTask = Instantiate(PrefabButtonTask, position);
 
             newButtonTask.transform.GetChild(1).gameObject.GetComponent<Text>().text = currentTask.nameTasks[i];
-            WorkTask work = newButtonTask.transform.GetChild(0).gameObject.GetComponent<WorkTask>();
-            work.nomerTask = i;
-            work.stars = stars;
-            work.progress = progress;
-            work.lvlProgress = progressLvL;
-            work.lvl = lvL;
-            work.tasksObject = currentTask;
-            work.objectTask = gameObject.GetComponent<SpriteRenderer>();
-            work.shiftBlock.currentBlock.Add(TaskBoard);
-            work.particSystem = particSystem;
-            work.shiftBlock.shiftBlock.Add(BoardStartGame);
-            work.loadTask = this;
-            work.taskBoard = TaskBoard;
+
+            NeedResursScript buttonScript = newButtonTask.transform.GetChild(0).gameObject.GetComponent<NeedResursScript>();
+
+            buttonScript.resursHaveObjectsCurrent = needResurs.resursHaveObjectsCurrent;
+            buttonScript.resursHaveObjectsShift = needResurs.resursHaveObjectsShift;
+            buttonScript.resursNotObjectsCurrent = needResurs.resursNotObjectsCurrent;
+            buttonScript.resursNotObjectsShift = needResurs.resursNotObjectsShift;
+            buttonScript.resurs = stars;
+
+            reward.task = currentTask;
+            reward.particleSystem = particSystem;
+            //reward.nomerTask = i;
+            reward.loadTask = this;
+            reward.objectTask = gameObject.GetComponent<SpriteRenderer>();
 
             if (currentTask.tasks[i] == Progress.completed)
             {
                 checkOk++;
-                newButtonTask.transform.GetChild(0).gameObject.GetComponent<Image>().color = Color.green;
+                newButtonTask.transform.GetChild(0).gameObject.SetActive(false);
+                newButtonTask.transform.GetChild(2).gameObject.SetActive(true);
             }
             else if (currentTask.tasks[i] == Progress.open)
             {
